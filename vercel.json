@@ -1,18 +1,7 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "packages/client/dist",
   "installCommand": "npm install",
-  "functions": {
-    "api/index.ts": {
-      "includeFiles": [
-        "packages/server/src/**",
-        "packages/shared/dist/**",
-        "routing-rules.json"
-      ],
-      "maxDuration": 30
-    }
-  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" }
   ]
