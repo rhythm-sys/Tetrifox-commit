@@ -4,7 +4,10 @@ export const config = {
   dbPath: process.env.DB_PATH || './data/parcel-routing.db',
   rulesPath: process.env.RULES_PATH || '../../routing-rules.json',
   cors: {
-    origins: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:5173'],
+    origins: process.env.ALLOWED_ORIGINS?.split(',') || [
+      'http://localhost:5173',
+      process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
+    ].filter(Boolean),
   },
   rateLimit: {
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW || '900000'),

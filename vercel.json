@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "packages/client/dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "functions": {
+    "api/**/*.mts": {
+      "runtime": "@vercel/node@3",
+      "includeFiles": "packages/server/src/**,packages/server/dist/**,packages/shared/src/**,packages/shared/dist/**,routing-rules.json",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
+}

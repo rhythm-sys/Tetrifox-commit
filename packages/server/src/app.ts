@@ -36,8 +36,8 @@ export function createApp(): express.Express {
   app.use('/api/health', healthRoutes);
   app.use('/api/metrics', metricsRoutes);
 
-  // In production, serve the built React app
-  if (config.nodeEnv === 'production') {
+  // In production, serve the built React app (skip on Vercel — it serves static files separately)
+  if (config.nodeEnv === 'production' && !process.env.VERCEL) {
     const clientDist = path.resolve(import.meta.dirname, '../../client/dist');
     app.use(express.static(clientDist));
     // SPA fallback: serve index.html for non-API routes
