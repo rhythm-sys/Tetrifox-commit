@@ -29,8 +29,9 @@ export function initDatabase(dbPath?: string): Database.Database {
   db.pragma('journal_mode = WAL');
   db.pragma('foreign_keys = ON');
 
-  // Run migrations
-  const migrationsDir = path.resolve(__dirname, 'migrations');
+  // Run migrations — check /tmp fallback for serverless environments
+  const defaultMigrationsDir = path.resolve(__dirname, 'migrations');
+  const migrationsDir = fs.existsSync(defaultMigrationsDir) ? defaultMigrationsDir : '/tmp/migrations';
   const migrationFiles = fs.readdirSync(migrationsDir)
     .filter((f) => f.endsWith('.sql'))
     .sort();
