@@ -8,6 +8,9 @@ import { metricsCollector } from '../monitoring/metrics.js';
 import { CircuitBreaker } from '../utils/circuit-breaker.js';
 import { config } from '../config/app.config.js';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let engine: RuleEngine;
 let ruleLoader: RuleLoader;
@@ -22,7 +25,7 @@ const dbCircuitBreaker = new CircuitBreaker({
 });
 
 export function initParcelService(): void {
-  const rulesPath = path.resolve(import.meta.dirname, '..', '..', config.rulesPath);
+  const rulesPath = path.resolve(__dirname, '..', '..', config.rulesPath);
   ruleLoader = new RuleLoader(rulesPath);
 
   const ruleConfig = ruleLoader.load();

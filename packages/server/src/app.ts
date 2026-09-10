@@ -1,5 +1,8 @@
 import express from 'express';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import cookieParser from 'cookie-parser';
 import { applySecurityMiddleware } from './middleware/security.js';
 import { requestId } from './middleware/request-id.js';
@@ -38,7 +41,7 @@ export function createApp(): express.Express {
 
   // In production, serve the built React app (skip on Vercel — it serves static files separately)
   if (config.nodeEnv === 'production' && !process.env.VERCEL) {
-    const clientDist = path.resolve(import.meta.dirname, '../../client/dist');
+    const clientDist = path.resolve(__dirname, '../../client/dist');
     app.use(express.static(clientDist));
     // SPA fallback: serve index.html for non-API routes
     app.get('*', (_req, res) => {

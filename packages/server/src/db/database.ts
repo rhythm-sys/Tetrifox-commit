@@ -1,8 +1,11 @@
 import Database from 'better-sqlite3';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { logger } from '../utils/logger.js';
 import { config } from '../config/app.config.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let db: Database.Database | null = null;
 
@@ -27,7 +30,7 @@ export function initDatabase(dbPath?: string): Database.Database {
   db.pragma('foreign_keys = ON');
 
   // Run migrations
-  const migrationsDir = path.resolve(import.meta.dirname, 'migrations');
+  const migrationsDir = path.resolve(__dirname, 'migrations');
   const migrationFiles = fs.readdirSync(migrationsDir)
     .filter((f) => f.endsWith('.sql'))
     .sort();
