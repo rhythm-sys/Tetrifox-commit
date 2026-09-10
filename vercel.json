@@ -3,10 +3,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "packages/client/dist",
   "installCommand": "npm install",
-  "framework": "vite",
   "functions": {
-    "api/**/*.mts": {
-      "includeFiles": "packages/server/src/**,packages/server/dist/**,packages/shared/src/**,packages/shared/dist/**,routing-rules.json",
+    "api/index.ts": {
+      "includeFiles": "packages/server/src/**,packages/shared/src/**,packages/shared/dist/**,routing-rules.json",
       "maxDuration": 30
     }
   },

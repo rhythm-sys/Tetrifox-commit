@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Parcel routing system with configurable business rules",
+  "engines": {
+    "node": "22.x"
+  },
   "workspaces": [
     "packages/shared",
     "packages/server",
