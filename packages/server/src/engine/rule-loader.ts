@@ -25,9 +25,9 @@ export class RuleLoader extends EventEmitter {
     const migrated = migrateRuleConfig(parsed);
     const validated = RuleConfigSchema.parse(migrated);
 
-    this.currentConfig = validated;
+    this.currentConfig = validated as RuleConfig;
     logger.info({ version: validated.version, ruleCount: validated.rules.length }, 'Rules loaded');
-    return validated;
+    return validated as RuleConfig;
   }
 
   getConfig(): RuleConfig | null {
