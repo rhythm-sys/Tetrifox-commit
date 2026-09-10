@@ -1,0 +1,22 @@
+{
+  "name": "parcel-routing-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Parcel routing system with configurable business rules",
+  "workspaces": [
+    "packages/shared",
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w packages/server\" \"npm run dev -w packages/client\"",
+    "build": "npm run build -w packages/shared && npm run build -w packages/server && npm run build -w packages/client",
+    "test": "npm run test -w packages/server",
+    "test:all": "npm run test -w packages/server && npm run test -w packages/client",
+    "lint": "eslint packages/*/src --ext .ts,.tsx"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.5.0"
+  }
+}

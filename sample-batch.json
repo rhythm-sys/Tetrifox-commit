@@ -1,0 +1,72 @@
+[
+  {
+    "weight": 0.5,
+    "value": 50,
+    "destination": { "country": "DE", "city": "Berlin", "postalCode": "10115" },
+    "sender": { "name": "Anna Mueller", "address": "Friedrichstr. 42, Berlin" },
+    "description": "Documents"
+  },
+  {
+    "weight": 3.2,
+    "value": 250,
+    "destination": { "country": "NL", "city": "Amsterdam", "postalCode": "1012" },
+    "sender": { "name": "Jan de Vries", "address": "Keizersgracht 100, Amsterdam" },
+    "description": "Books"
+  },
+  {
+    "weight": 15.0,
+    "value": 800,
+    "destination": { "country": "FR", "city": "Paris", "postalCode": "75001" },
+    "sender": { "name": "Pierre Dupont", "address": "12 Rue de Rivoli, Paris" },
+    "description": "Furniture parts"
+  },
+  {
+    "weight": 0.3,
+    "value": 2500,
+    "destination": { "country": "BE", "city": "Brussels", "postalCode": "1000" },
+    "sender": { "name": "Sophie Laurent", "address": "Grand Place 5, Brussels" },
+    "description": "Jewelry"
+  },
+  {
+    "weight": 7.5,
+    "value": 120,
+    "destination": { "country": "DE", "city": "Munich", "postalCode": "80331" },
+    "sender": { "name": "Klaus Schmidt", "address": "Marienplatz 8, Munich" },
+    "description": "Clothing"
+  },
+  {
+    "weight": 25.0,
+    "value": 3000,
+    "destination": { "country": "NL", "city": "Rotterdam", "postalCode": "3011" },
+    "sender": { "name": "Emma Bakker", "address": "Coolsingel 20, Rotterdam" },
+    "description": "Electronics"
+  },
+  {
+    "weight": 1.0,
+    "value": 30,
+    "destination": { "country": "FR", "city": "Lyon", "postalCode": "69001" },
+    "sender": { "name": "Marie Blanc", "address": "Place Bellecour 3, Lyon" },
+    "description": "Cosmetics"
+  },
+  {
+    "weight": 9.8,
+    "value": 450,
+    "destination": { "country": "DE", "city": "Hamburg", "postalCode": "20095" },
+    "sender": { "name": "Felix Weber", "address": "Jungfernstieg 15, Hamburg" },
+    "description": "Tools"
+  },
+  {
+    "weight": 0.1,
+    "value": 5000,
+    "destination": { "country": "BE", "city": "Antwerp", "postalCode": "2000" },
+    "sender": { "name": "Luc Janssens", "address": "Meir 50, Antwerp" },
+    "description": "Watch"
+  },
+  {
+    "weight": 45.0,
+    "value": 150,
+    "destination": { "country": "FR", "city": "Marseille", "postalCode": "13001" },
+    "sender": { "name": "Jean Martin", "address": "La Canebiere 10, Marseille" },
+    "description": "Building materials"
+  }
+]

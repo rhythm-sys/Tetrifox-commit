@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.js.map
+*.d.ts.map
+.env
+*.db
+data/
+.DS_Store
+coverage/
+playwright-report/
+test-results/

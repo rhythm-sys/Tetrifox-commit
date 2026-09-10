@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: parcel-routing-system
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build -w @parcel-routing/client
+    startCommand: node --import tsx packages/server/src/index.ts
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: DB_PATH
+        value: /opt/render/project/data/parcel-routing.db
+      - key: RULES_PATH
+        value: ../../routing-rules.json
+      - key: ALLOWED_ORIGINS
+        value: https://parcel-routing-system.onrender.com
+      - key: LOG_LEVEL
+        value: info
+    disk:
+      name: parcel-data
+      mountPath: /opt/render/project/data
+      sizeGB: 1

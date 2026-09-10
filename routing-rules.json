@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "evaluationMode": "first-match",
+  "rules": [
+    {
+      "id": "insurance-approval",
+      "name": "High Value Insurance Approval",
+      "description": "Parcels with declared value over €1,000 require insurance approval before routing",
+      "priority": 100,
+      "enabled": true,
+      "conditions": {
+        "all": [
+          { "field": "value", "operator": "gt", "value": 1000 }
+        ]
+      },
+      "action": {
+        "type": "require_approval",
+        "approvalType": "insurance",
+        "message": "Parcel value exceeds €1,000. Insurance approval required before routing."
+      }
+    },
+    {
+      "id": "heavy-route",
+      "name": "Heavy Parcel Route",
+      "description": "Parcels over 10kg are routed to the Heavy Department",
+      "priority": 50,
+      "enabled": true,
+      "conditions": {
+        "all": [
+          { "field": "weight", "operator": "gt", "value": 10 }
+        ]
+      },
+      "action": {
+        "type": "route",
+        "department": "Heavy",
+        "message": "Routed to Heavy Department (weight > 10kg)"
+      }
+    },
+    {
+      "id": "regular-route",
+      "name": "Regular Parcel Route",
+      "description": "Parcels between 1kg and 10kg are routed to the Regular Department",
+      "priority": 40,
+      "enabled": true,
+      "conditions": {
+        "all": [
+          { "field": "weight", "operator": "gt", "value": 1 },
+          { "field": "weight", "operator": "lte", "value": 10 }
+        ]
+      },
+      "action": {
+        "type": "route",
+        "department": "Regular",
+        "message": "Routed to Regular Department (1kg < weight ≤ 10kg)"
+      }
+    },
+    {
+      "id": "mail-route",
+      "name": "Mail Route",
+      "description": "Parcels up to 1kg are routed to the Mail Department",
+      "priority": 30,
+      "enabled": true,
+      "conditions": {
+        "all": [
+          { "field": "weight", "operator": "lte", "value": 1 }
+        ]
+      },
+      "action": {
+        "type": "route",
+        "department": "Mail",
+        "message": "Routed to Mail Department (weight ≤ 1kg)"
+      }
+    }
+  ]
+}
